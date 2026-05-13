@@ -3,10 +3,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "../../11-abstract-data-types-2026-kwan5051/Vec.h"
 
 using namespace std;
 typedef string::const_iterator iter;
-typedef vector<string>::const_iterator v_iter;
+typedef Vec<string>::const_iterator v_iter;
 
 //필요한 함수
 bool not_url_char(char c){
@@ -50,7 +51,7 @@ iter url_beg(iter b, iter e){
 	}
 	return e;
 }
-vector<string> find_urls(const string& s){
+Vec<string> find_urls(const string& s){
 	vector<string>urls;
 	iter b = s.begin(),
 		e = s.end();
@@ -78,7 +79,7 @@ vector<string> find_urls(const string& s){
 int main() {
 	string s;
 	while (getline(cin, s)) {
-		vector<string> v = find_urls(s);
+		Vec<string> v = find_urls(s);
 
 		for (v_iter i = v.begin(); i != v.end(); i++) {
 			cout << *i << endl;
